@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticConstructor", "StaticConstructor\StaticConstructor.csproj", "{52094666-0B4B-4829-A0E0-B646C7845A2C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52094666-0B4B-4829-A0E0-B646C7845A2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52094666-0B4B-4829-A0E0-B646C7845A2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52094666-0B4B-4829-A0E0-B646C7845A2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52094666-0B4B-4829-A0E0-B646C7845A2C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
