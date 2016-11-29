@@ -16,8 +16,9 @@ namespace ControllerOverloading.Controllers
             return Content("Index Get Method");
         }
 
-        [HttpPost]
-        public ActionResult Index(int id)
+        [HttpPost] //function without using this verb even if it has int id will throw runtime error since there will be ambiguity
+        //between which funtion to call as it will not produce a unique URL.
+        public ActionResult Index(int id) //function without int id will not compile since then both methods will be same.
         {
             return Content("Index Post Method");
         }
