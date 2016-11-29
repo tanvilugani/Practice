@@ -1,0 +1,60 @@
+﻿@model ModelBindingValidState.Models.Employee
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+@using (Html.BeginForm("Index", "Employee", "Post"))
+{
+    <body>
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.Id)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => Model.Id)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.Name)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => Model.Name)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.Department)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => Model.Department)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => Model.Salary)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => Model.Salary)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Go" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+}
+</html>
