@@ -1,0 +1,71 @@
+﻿@model ModelBinding.Models.Employee
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+</head>
+@using (Html.BeginForm("AddUpdate", "Employee", "Post"))
+{
+    <body>
+        <div>
+            <table>
+                <tr>
+                    <td>Id 
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Id)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Name 
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Name)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Department 
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Department)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Salary 
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Salary)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender
+                    </td>
+                    <td>
+                        @Html.RadioButtonFor(m => m.Gender, "Male") Male
+                        @Html.RadioButtonFor(m => m.Gender, "Female") Female
+                    </td>
+                <tr>
+                    <td>
+                        @if (Model == null)
+                        {
+                            <input type="submit" value="Add" name="AddUpdateEmployee" />
+                        }
+                        else
+                        {
+                            <input type="submit" value="Update" name="AddUpdateEmployee" />
+                        }
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+}
+</html>

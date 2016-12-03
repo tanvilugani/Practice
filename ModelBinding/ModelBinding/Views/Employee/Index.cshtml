@@ -1,0 +1,92 @@
+﻿@model List<ModelBinding.Models.Employee>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+    @using(Html.BeginForm("Delete","Employee","Post"))
+    {
+<body>
+    <div>
+        @Html.ActionLink("Add Employee", "AddUpdate")
+    </div>
+    <div>
+            @if (Model == null)
+            {
+                <label>No employees added.</label> 
+            }
+            else
+            {
+                <table>
+                    
+                    @for(int i = 0; i < Model.Count(); i++) 
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => Model[i].Id)
+                            @Html.HiddenFor(m => Model[i].Id)
+                            @* Need to have a hidden field since DisplayFor are not posted by form. *@
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => Model[i].Name)
+                            @Html.HiddenFor(m => Model[i].Name)
+                        </td>
+                        <td>
+                            @Html.HiddenFor(m => Model[i].Department)
+                            @Html.DisplayFor(m => Model[i].Department)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => Model[i].Salary)
+                            @Html.HiddenFor(m => Model[i].Salary)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => Model[i].Gender)
+                            @Html.HiddenFor(m => Model[i].Gender)
+                        </td>
+                        <td>
+                            @*The property needs to be added in the model so as to represent/store on the view.*@
+                            @Html.CheckBoxFor(m => Model[i].IsSelected)
+                        </td>
+                    </tr>
+                }
+
+                @*The values in model do not get updated using foreach loop here.*@
+                @*@foreach (var employee in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => employee.Id)
+                            @Html.HiddenFor(m => employee.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => employee.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => employee.Department)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => employee.Salary)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => employee.Gender)
+                        </td>
+                        <td>
+                            @Html.CheckBoxFor(m => employee.IsSelected)
+                        </td>
+                    </tr>
+                }*@
+                </table>
+            }
+
+       <input type="submit" value="Delete" />
+    </div>
+</body>
+    }
+</html>

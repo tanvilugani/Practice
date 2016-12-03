@@ -1,0 +1,5 @@
+The application focuses on :
+1. Displaying employees details i.e. Binding list to View.
+2. Adding an employee i.e. Binding object to View.
+3. Selecting multiple employees and deleting them i.e. Checkbox functionality.
+4. Posting data using Hidden fields since DisplayFor does not post.
