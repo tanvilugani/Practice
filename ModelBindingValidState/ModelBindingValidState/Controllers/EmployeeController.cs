@@ -24,6 +24,12 @@ namespace ModelBindingValidState.Controllers
         {
             var modelState = ModelState;
 
+            if (ModelState.IsValid)
+            { 
+                //IsValid checks for conversion errors when converting from view data to model properties
+                //And also checks for validations on the model.
+            }
+
             return View();
         }
 
