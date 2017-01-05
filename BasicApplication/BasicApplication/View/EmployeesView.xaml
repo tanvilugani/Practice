@@ -1,0 +1,30 @@
+﻿<Window x:Class="BasicApplication.View.EmployeesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewmodel="clr-namespace:BasicApplication.ViewModel"
+        Title="CustomersView" Height="300" Width="300">
+    <Window.DataContext>
+        <viewmodel:EmployeesViewModel></viewmodel:EmployeesViewModel>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Button Grid.Row="0" Content="Add"></Button>
+        
+         <ListView Grid.Row="1" Margin="5" Name="EmployeesViewList" ItemsSource="{Binding Employees}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <Label Content="{Binding EmpId}"></Label>
+                        <Label Content="{Binding Name}"></Label>
+                        <Label Content="{Binding Salary}" ></Label>
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>    
+    </Grid>
+</Window>
