@@ -1,7 +1,7 @@
 ﻿<Application x:Class="BasicApplication.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="View/EmployeesView.xaml">
+             StartupUri="View/AddUpdateEmployee.xaml">
     <Application.Resources>
          
     </Application.Resources>

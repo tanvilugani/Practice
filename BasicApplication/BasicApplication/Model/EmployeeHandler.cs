@@ -77,5 +77,10 @@ namespace BasicApplication.Model
             return _employees;
         }
 
+
+        public Employee GetEmployee(int empId)
+        {
+            return _employees.Where(e => e.EmpId == empId).FirstOrDefault();
+        }
     }
 }

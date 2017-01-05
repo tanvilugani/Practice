@@ -13,8 +13,7 @@ namespace BasicApplication.ViewModel
         private EmployeeHandler _employeeHandler;
         public ObservableCollection<Employee> Employees {get; set;}
         //List<Employee> Employees {get; set;}
-
-
+        
         public EmployeesViewModel()
         {
             _employeeHandler = new EmployeeHandler();
