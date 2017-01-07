@@ -17,9 +17,9 @@ namespace BasicApplication.View
     /// <summary>
     /// Interaction logic for AddUpdateEmployee.xaml
     /// </summary>
-    public partial class AddUpdateEmployee : Window
+    public partial class AddEmployee : Window
     {
-        public AddUpdateEmployee()
+        public AddEmployee()
         {
             InitializeComponent();
         }

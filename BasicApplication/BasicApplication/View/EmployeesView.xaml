@@ -11,11 +11,12 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20"></RowDefinition>
             <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
         </Grid.RowDefinitions>
-        
-        <Button Grid.Row="0" Content="Add"></Button>
-        
-         <ListView Grid.Row="1" Margin="5" Name="EmployeesViewList" ItemsSource="{Binding Employees}">
+
+        <Button Grid.Row="0" Content="Add" Width="50" Command="{Binding AddEmployee}"></Button>
+
+        <ListView Grid.Row="1" Margin="5" Name="EmployeesViewList" ItemsSource="{Binding Employees, TargetNullValue='N/a'}" SelectedItem="{Binding SelectedEmployee}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
@@ -25,6 +26,12 @@
                     </WrapPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>    
+        </ListView>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="5,0,5,161">
+            <Label Content="Selected Employee is : " Width="126"></Label>
+            <!--Not working at present the target null value-->
+            <Label Content="{Binding SelectedEmployee.EmpId, TargetNullValue='N/A'}" ></Label>
+        </StackPanel>
     </Grid>
 </Window>
