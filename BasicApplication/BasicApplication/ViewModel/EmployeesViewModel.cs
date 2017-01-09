@@ -1,9 +1,9 @@
-﻿using BasicApplication.Model;
+﻿using BasicApplication.Messages;
+using BasicApplication.Model;
+using BasicApplication.Services;
 using BasicApplication.Utility;
-using BasicApplication.View;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Windows;
 using System.Windows.Input;
 
 namespace BasicApplication.ViewModel
@@ -12,8 +12,8 @@ namespace BasicApplication.ViewModel
     {
         private EmployeeHandler _employeeHandler;
         private ObservableCollection<Employee> _employees;
-
         private Employee _selectedEmployee;
+        private DialogService _dialogService;
 
         public ICommand AddEmployeeCommand { get; set; }
 
@@ -49,8 +49,21 @@ namespace BasicApplication.ViewModel
         public EmployeesViewModel()
         {
             _employeeHandler = new EmployeeHandler();
-            Employees = new ObservableCollection<Employee>(_employeeHandler.GetEmployees());
+            _dialogService = new DialogService();
+            LoadData();
             LoadCommands();
+            Messenger.Default.Register<UpdateEmployeeListMessage>(this, OnUpdateListMessageReceived);
+        }
+
+        private void LoadData()
+        {
+            Employees = new ObservableCollection<Employee>(_employeeHandler.GetEmployees());
+        }
+
+        private void OnUpdateListMessageReceived(UpdateEmployeeListMessage obj)
+        {
+            LoadData();
+            _dialogService.CloseAddEmployeeDialog();
         }
 
         private void LoadCommands()
@@ -64,11 +77,21 @@ namespace BasicApplication.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        /// <summary>
+        /// Function to open Add Employee Dialog.
+        /// </summary>
+        /// <param name="obj"></param>
         public void AddEmployee(object obj)
         {
-            Messenger.Default.Send<Employee>(_selectedEmployee);
+            //Messenger.Default.Send<Employee>(_selectedEmployee);
+            _dialogService.ShowAddEmployeeDialog();
         }
 
+        /// <summary>
+        /// Confirm if Employee can be added.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         private bool CanAddEmployee(object obj)
         {
             return true;
