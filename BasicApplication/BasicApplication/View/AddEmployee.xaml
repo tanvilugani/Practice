@@ -3,11 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Add Employee" Height="300" Width="300"
         xmlns:viewmodel="clr-namespace:BasicApplication.ViewModel"
-        >
-    <Window.DataContext>
-        <viewmodel:AddEmployeeViewModel></viewmodel:AddEmployeeViewModel>
-    </Window.DataContext>
-    
+        DataContext="{Binding Source={StaticResource mainViewModelLocator},  Path=AddEmployeeViewModel}"
+                >
+      
     <Grid Margin="5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"></ColumnDefinition>
