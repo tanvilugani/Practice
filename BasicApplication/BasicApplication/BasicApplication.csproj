@@ -54,6 +54,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Utility\CustomCommand.cs" />
+    <Compile Include="Utility\Messenger.cs" />
     <Compile Include="ViewModel\AddEmployeeViewModel.cs" />
     <Compile Include="ViewModel\EmployeesViewModel.cs" />
     <Compile Include="ViewModel\UpdateEmployeeViewModel.cs" />

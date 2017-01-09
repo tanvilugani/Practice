@@ -1,6 +1,10 @@
 ﻿using BasicApplication.Model;
+using BasicApplication.Utility;
+using BasicApplication.View;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows;
+using System.Windows.Input;
 
 namespace BasicApplication.ViewModel
 {
@@ -10,6 +14,8 @@ namespace BasicApplication.ViewModel
         private ObservableCollection<Employee> _employees;
 
         private Employee _selectedEmployee;
+
+        public ICommand AddEmployeeCommand { get; set; }
 
         public Employee SelectedEmployee
         {
@@ -23,7 +29,6 @@ namespace BasicApplication.ViewModel
                 RaisePropertyChanged("SelectedEmployee");
             }
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -45,6 +50,12 @@ namespace BasicApplication.ViewModel
         {
             _employeeHandler = new EmployeeHandler();
             Employees = new ObservableCollection<Employee>(_employeeHandler.GetEmployees());
+            LoadCommands();
+        }
+
+        private void LoadCommands()
+        {
+            AddEmployeeCommand = new CustomCommand(AddEmployee, CanAddEmployee);
         }
 
         private void RaisePropertyChanged(string propertyName)
@@ -54,8 +65,13 @@ namespace BasicApplication.ViewModel
         }
 
         public void AddEmployee(object obj)
-        { 
-            //TODO : add code
+        {
+            Messenger.Default.Send<Employee>(_selectedEmployee);
+        }
+
+        private bool CanAddEmployee(object obj)
+        {
+            return true;
         }
     }
 }

@@ -10,11 +10,19 @@ namespace BasicApplication.ViewModel
 
         public Employee Employee { get; set; }
         public ICommand AddCommand { get; set; }
+        
 
         public AddEmployeeViewModel()
         {
             _employeeHandler = new EmployeeHandler();
             LoadCommands();
+
+            Messenger.Default.Register<Employee>(this, OnEmployeeReceived);
+        }
+
+        private void OnEmployeeReceived(Employee selectedEmployee)
+        {
+            Employee = selectedEmployee;
         }
 
         private void LoadCommands()
@@ -31,5 +39,6 @@ namespace BasicApplication.ViewModel
         { 
             var isEmployeeAdded = _employeeHandler.AddEmployee((Employee)obj);
         }
-     }
+
+    }
 }
