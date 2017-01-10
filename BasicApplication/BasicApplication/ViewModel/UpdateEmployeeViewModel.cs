@@ -2,6 +2,7 @@
 
 namespace BasicApplication.ViewModel
 {
+    //Not currently being used.
     class UpdateEmployeeViewModel
     {
         private EmployeeHandler _employeeHandler;

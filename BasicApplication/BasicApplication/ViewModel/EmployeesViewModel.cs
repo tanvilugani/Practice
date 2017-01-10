@@ -52,25 +52,40 @@ namespace BasicApplication.ViewModel
             _dialogService = new DialogService();
             LoadData();
             LoadCommands();
+            //Registering to listen to UpdateEmployeeListMessage.
             Messenger.Default.Register<UpdateEmployeeListMessage>(this, OnUpdateListMessageReceived);
         }
 
+        /// <summary>
+        /// Function for loading initial data.
+        /// </summary>
         private void LoadData()
         {
             Employees = new ObservableCollection<Employee>(_employeeHandler.GetEmployees());
         }
 
+        /// <summary>
+        /// Function to be executed when Update list message is received.
+        /// </summary>
+        /// <param name="obj"></param>
         private void OnUpdateListMessageReceived(UpdateEmployeeListMessage obj)
         {
             LoadData();
             _dialogService.CloseAddEmployeeDialog();
         }
 
+        /// <summary>
+        /// Function to load commands initially.
+        /// </summary>
         private void LoadCommands()
         {
             AddEmployeeCommand = new CustomCommand(AddEmployee, CanAddEmployee);
         }
 
+        /// <summary>
+        /// Function to raise event when the property is changed.
+        /// </summary>
+        /// <param name="propertyName">property name</param>
         private void RaisePropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)

@@ -20,21 +20,26 @@ namespace BasicApplication.Model
                     EmpId = 1,
                     Name = "Tanvi",
                     DOJ = DateTime.Now.Date,
-                    Salary = 5248,
+                    Salary = 61452,
                     Department = "IT"
                 });
 
                 _employees.Add(new Employee
                 {
                     EmpId = 2,
-                    Name = "Tanvi",
+                    Name = "Karan",
                     DOJ = DateTime.Now.Date,
-                    Salary = 5248,
+                    Salary = 52480,
                     Department = "IT"
                 });
             }
         }
 
+        /// <summary>
+        /// Function to add employee to the list.
+        /// </summary>
+        /// <param name="employee">employee to be added.</param>
+        /// <returns>true if successfull else false.</returns>
         public bool AddEmployee(Employee employee)
         {
             try
@@ -48,6 +53,11 @@ namespace BasicApplication.Model
             }
         }
 
+        /// <summary>
+        /// Function to delete Employee. Its not used at present.
+        /// </summary>
+        /// <param name="empId">Id of employee to be deleted.</param>
+        /// <returns>True if succcessful else false.</returns>
         public bool DeleteEmployee(int empId)
         {
             try
@@ -72,12 +82,20 @@ namespace BasicApplication.Model
             }
         }
 
+        /// <summary>
+        /// Function to get list of employees
+        /// </summary>
+        /// <returns></returns>
         public List<Employee> GetEmployees()
         {
             return _employees;
         }
 
-
+        /// <summary>
+        /// Function to get details of a particular employee. Not used at present
+        /// </summary>
+        /// <param name="empId">Employee Id</param>
+        /// <returns>Employee object</returns>
         public Employee GetEmployee(int empId)
         {
             return _employees.Where(e => e.EmpId == empId).FirstOrDefault();
