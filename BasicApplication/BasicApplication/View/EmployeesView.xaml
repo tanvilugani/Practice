@@ -55,8 +55,8 @@
                 <Label Content="{Binding SelectedEmployee.EmpId, TargetNullValue='N/A'}" Grid.Column="1" Grid.Row="0" ></Label>
                 <Label Content="{Binding SelectedEmployee.Name, TargetNullValue='N/A'}" Grid.Column="1" Grid.Row="1" ></Label>
                 <Label Content="{Binding SelectedEmployee.Department, TargetNullValue='N/A'}" Grid.Column="1" Grid.Row="2" ></Label>
-                <Label Content="{Binding SelectedEmployee.Salary, TargetNullValue='N/A'}" Grid.Column="1" Grid.Row="3" ></Label>
-                <Label Content="{Binding SelectedEmployee.DOJ, TargetNullValue='N/A'}" Grid.Column="1" Grid.Row="4" ></Label>
+                <Label Content="{Binding SelectedEmployee.Salary, TargetNullValue='N/A', Converter={StaticResource salaryConverter}}" Grid.Column="1" Grid.Row="3" ></Label>
+                <Label Content="{Binding SelectedEmployee.DOJ, TargetNullValue='N/A'}"  Grid.Column="1" Grid.Row="4" ></Label>
             </Grid>
         </StackPanel>
     </Grid>

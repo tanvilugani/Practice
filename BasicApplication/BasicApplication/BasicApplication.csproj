@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\SalaryConverter.cs" />
     <Compile Include="Messages\UpdateEmployeeListMessage.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Utility\CustomCommand.cs" />

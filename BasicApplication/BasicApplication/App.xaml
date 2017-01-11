@@ -3,10 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="View/EmployeesView.xaml"
              xmlns:local="clr-namespace:BasicApplication"
+             xmlns:converter="clr-namespace:BasicApplication.Converters"
              >
     <Application.Resources>
         <ResourceDictionary>
             <local:ViewModalLocator x:Key="mainViewModelLocator"></local:ViewModalLocator>
+            <converter:SalaryConverter x:Key="salaryConverter"></converter:SalaryConverter>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
