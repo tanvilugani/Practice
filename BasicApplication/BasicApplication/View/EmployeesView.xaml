@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:viewmodel="clr-namespace:BasicApplication.ViewModel"
-        Title="Employees" Height="300" Width="300">
+        Title="Employees" Height="400" Width="300">
     <Window.DataContext>
         <viewmodel:EmployeesViewModel></viewmodel:EmployeesViewModel>
     </Window.DataContext>
@@ -10,7 +10,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="200"></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -28,10 +28,36 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="5,0,5,161">
-            <Label Content="Selected Employee is : " Width="126"></Label>
+        <StackPanel Grid.Row="2">
+            <Label Content="Selected Employee Details : "></Label>
+
             <!--Not working at present the target null value-->
-            <Label Content="{Binding SelectedEmployee.EmpId, TargetNullValue='N/A'}" ></Label>
+           <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Id" Grid.Column="0" Grid.Row="0"></Label>
+                <Label Content="Name" Grid.Column="0" Grid.Row="1"></Label>
+                <Label Content="Department" Grid.Column="0" Grid.Row="2" ></Label>
+                <Label Content="Salary" Grid.Column="0" Grid.Row="3" ></Label>
+                <Label Content="DOJ" Grid.Column="0" Grid.Row="4" ></Label>
+
+                <Label Content="{Binding SelectedEmployee.EmpId, TargetNullValue='N/A'}" Grid.Column="1" Grid.Row="0" ></Label>
+                <Label Content="{Binding SelectedEmployee.Name, TargetNullValue='N/A'}" Grid.Column="1" Grid.Row="1" ></Label>
+                <Label Content="{Binding SelectedEmployee.Department, TargetNullValue='N/A'}" Grid.Column="1" Grid.Row="2" ></Label>
+                <Label Content="{Binding SelectedEmployee.Salary, TargetNullValue='N/A'}" Grid.Column="1" Grid.Row="3" ></Label>
+                <Label Content="{Binding SelectedEmployee.DOJ, TargetNullValue='N/A'}" Grid.Column="1" Grid.Row="4" ></Label>
+            </Grid>
         </StackPanel>
     </Grid>
 </Window>
