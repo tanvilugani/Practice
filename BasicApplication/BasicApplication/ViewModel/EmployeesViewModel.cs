@@ -16,6 +16,7 @@ namespace BasicApplication.ViewModel
         private DialogService _dialogService;
 
         public ICommand AddEmployeeCommand { get; set; }
+        public ICommand UpdateEmployeeCommand { get; set; }
 
         public Employee SelectedEmployee
         {
@@ -72,6 +73,7 @@ namespace BasicApplication.ViewModel
         {
             LoadData();
             _dialogService.CloseAddEmployeeDialog();
+            _dialogService.CloseUpdateEmployeeDialog();
         }
 
         /// <summary>
@@ -80,6 +82,7 @@ namespace BasicApplication.ViewModel
         private void LoadCommands()
         {
             AddEmployeeCommand = new CustomCommand(AddEmployee, CanAddEmployee);
+            UpdateEmployeeCommand = new CustomCommand(UpdateEmployee, CanUpdateEmployee);
         }
 
         /// <summary>
@@ -98,7 +101,6 @@ namespace BasicApplication.ViewModel
         /// <param name="obj"></param>
         public void AddEmployee(object obj)
         {
-            //Messenger.Default.Send<Employee>(_selectedEmployee);
             _dialogService.ShowAddEmployeeDialog();
         }
 
@@ -111,5 +113,27 @@ namespace BasicApplication.ViewModel
         {
             return true;
         }
+
+        /// <summary>
+        /// Function to open Update Employee Dialog.
+        /// </summary>
+        /// <param name="obj"></param>
+        public void UpdateEmployee(object obj)
+        {
+            Messenger.Default.Send<Employee>(_selectedEmployee);
+
+            _dialogService.ShowUpdateEmployeeDialog();
+        }
+
+        /// <summary>
+        /// Confirm if Employee can be updated.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        private bool CanUpdateEmployee(object obj)
+        {
+            return true;
+        }
+
     }
 }
