@@ -6,6 +6,7 @@ namespace BasicApplication.Services
     class DialogService
     {
         private Window _addEmployeeView = null;
+        private Window _updateEmployeeView = null;
 
         /// <summary>
         /// Function to show Add Employee Dialog Window.
@@ -23,6 +24,24 @@ namespace BasicApplication.Services
         {
             if(_addEmployeeView != null)
             _addEmployeeView.Close();
+        }
+
+        /// <summary>
+        /// Function to show Update Employee Dialog Window.
+        /// </summary>
+        public void ShowUpdateEmployeeDialog()
+        {
+            _updateEmployeeView = new UpdateEmployee();
+            _updateEmployeeView.ShowDialog();
+        }
+
+        /// <summary>
+        /// Function to close Update Employee Dialog window.
+        /// </summary>
+        public void CloseUpdateEmployeeDialog()
+        {
+            if (_updateEmployeeView != null)
+                _updateEmployeeView.Close();
         }
 
     }

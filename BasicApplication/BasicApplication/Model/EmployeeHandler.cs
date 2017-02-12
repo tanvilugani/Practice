@@ -83,6 +83,35 @@ namespace BasicApplication.Model
         }
 
         /// <summary>
+        /// Function to update Employee. Its not used at present.
+        /// </summary>
+        /// <param name="empId">Id of employee to be deleted.</param>
+        /// <returns>True if succcessful else false.</returns>
+        public bool UpdateEmployee(Employee updatedEmployee)
+        {
+            try
+            {
+                var employeeToBeUpdated = _employees.Where(e => e.EmpId == updatedEmployee.EmpId).FirstOrDefault();
+
+                if (employeeToBeUpdated == null)
+                {
+                    //to signify employee does not exist.
+                    return false;
+                }
+                else
+                {
+                    employeeToBeUpdated = updatedEmployee;
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
         /// Function to get list of employees
         /// </summary>
         /// <returns></returns>

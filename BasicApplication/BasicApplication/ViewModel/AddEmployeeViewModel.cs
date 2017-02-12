@@ -19,16 +19,9 @@ namespace BasicApplication.ViewModel
             _employeeHandler = new EmployeeHandler();
             LoadCommands();
 
-            //Messenger.Default.Register<Employee>(this, OnEmployeeReceived);
-
             Employee = new Employee();
             _dialogService = new DialogService();
         }
-
-        //private void OnEmployeeReceived(Employee employee)
-        //{
-        //    Employee = employee;
-        //}
 
         private void LoadCommands()
         {
@@ -37,14 +30,13 @@ namespace BasicApplication.ViewModel
 
         private bool CanAddEmployee(object obj)
         {
-            return true; 
+            return true;
         }
- 
+
         private void AddEmployee(object obj)
-        { 
+        {
             var isEmployeeAdded = _employeeHandler.AddEmployee(Employee);
             Messenger.Default.Send<UpdateEmployeeListMessage>(new UpdateEmployeeListMessage());
         }
-
     }
 }
