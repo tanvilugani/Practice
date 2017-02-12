@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace XAMLBasics.Properties
+namespace BasicApplication.Properties
 {
 
 
