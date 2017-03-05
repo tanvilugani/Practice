@@ -29,7 +29,7 @@ namespace NamedNOptionalParams
             #endregion
 
             //Code for Optional Params
-            #region 
+            #region
 
             // Instance anExample does not send an argument for the constructor's
             // optional parameter.
@@ -79,6 +79,14 @@ namespace NamedNOptionalParams
         {
             _name = name;
         }
+
+        //This is not possible if following function is declared.
+        //public void ExampleMethod(int required, string optionalstr,
+        //    int optionalint)
+        //{
+        //    Console.WriteLine("Inside function 1", _name, required, optionalstr,
+        //        optionalint);
+        //}
 
         // The first parameter, required, has no default value assigned
         // to it. Therefore, it is not optional. Both optionalstr and 
