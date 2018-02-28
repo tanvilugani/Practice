@@ -1,0 +1,36 @@
+static void levelOrder(Node root){
+  		//Write your code here
+        var nodes = new List<Node>();
+        
+            if(root != null)
+            {
+                nodes.Add(root);    
+            }
+        
+        while(root != null)
+        {
+            if(root.left != null)
+            {
+                nodes.Add(root.left);    
+            }
+        
+            if(root.right != null)
+            {
+                nodes.Add(root.right);    
+            }
+        
+            Console.Write("{0} ", nodes[0].data);
+        
+            nodes.Remove(root);
+        
+            if(nodes.Count > 0)
+                {
+            root = nodes[0]; 
+                }
+            else
+                {
+            root = null;
+                }
+        }
+        
+    }
